@@ -10,12 +10,12 @@
 $linc= mysqli_connect("localhost", "root", "root") or die(mysqli_error());
 $conn= mysqli_select_db($linc,"Euro-App") or die(mysqli_error());
 
-echo 'Подключение к базе данных.<br>';
+/*echo 'Подключение к базе данных.<br>';
 
 $result = mysqli_query($linc,"SELECT Name FROM User");
 
 $row = mysqli_fetch_row($result);
 echo "Сотрудник 1: ", $row[0], "<br>\n";
 
-mysqli_close($linc);
+mysqli_close($linc);*/
 ?>

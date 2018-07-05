@@ -117,8 +117,17 @@ fieldset
 {
     background-position: 5px -2px !important;
 }
+#userEmail
+{
+    background-position: 5px -2px !important;
+}
+
 
 #password
+{
+    background-position: 5px -52px !important;
+}
+#passwordCopy
 {
     background-position: 5px -52px !important;
 }

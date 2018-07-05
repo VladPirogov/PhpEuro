@@ -5,5 +5,9 @@
  * Date: 04.07.2018
  * Time: 10:47
  */
-echo "Yes!";
+session_start();
+/*
+echo $_SESSION['user_id'];*/
+
+
 ?>

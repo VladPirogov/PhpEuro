@@ -5,19 +5,22 @@
 	<title>Генератор єврододатків</title>
 
 	<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->    
-    <link href="style.css" rel="stylesheet">
+    <link href="../css/style2regist.css" rel="stylesheet">
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
 	<link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/regist.js"></script>
+
 
 </head>
 <body>
-	<form id="login">
+	<form id="login" action="../user/regist.php" method="post">
     <h1>Форма регистрації</h1>
     <fieldset id="inputs">
-        <input id="username" type="text" placeholder="Ваша пошта" autofocus required>   
-        <input id="username" type="text" placeholder="Ваше Ф.І.О" autofocus required> 
-        <input id="password" type="password" placeholder="Пароль" required>
-        <input id="password" type="password" placeholder="Повторіть пароль" required>
+        <input id="userEmail" name="userEmail" type="text" placeholder="Ваша пошта(E-mail)" autofocus required>
+        <input id="username" name="username" type="text" placeholder="Ваше ім'я(login)" autofocus required>
+        <input id="password" name="password" type="password" placeholder="Пароль" required>
+        <input id="passwordCopy" type="password" placeholder="Повторіть пароль" required>
     </fieldset>
     <fieldset id="actions">
         <input type="submit" id="submit" value="ЗАРЕЄСТРУВАТИСЬ">

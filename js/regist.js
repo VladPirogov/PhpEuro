@@ -4,9 +4,9 @@ $('form').submit(function(e){
 
     $.ajax({
         type: "POST",
-        url: "user/autorization.php",
+        url: "user/regist.php",
         datatype: "text",
-        data: {username : $("#username").val(),password:$("#password").val() },
+        data: {userEmail : $("#userEmail").val(),username : $("#username").val(),password:$("#password").val() },
         success: function(data) {
             console.log(data);
         }

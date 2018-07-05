@@ -1,0 +1,78 @@
+
+html, body
+{
+    height: 90%;
+}
+
+body
+{
+    font: 12px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
+    margin: 0;
+    background: url(../img/bg.png) repeat;
+}
+header{
+    width:70%;
+    height: 70px;
+    text-align: center;
+    background: #D8E3AB;
+    margin-left:15%;
+}
+#login
+{
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);
+
+    width: 70%;
+    margin: 15% 0 0 15%;
+    padding: 10px;
+    /*position: absolute;*/
+    top: 70px;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow:
+            0 0 2px rgba(0, 0, 0, 0.2),
+            0 1px 1px rgba(0, 0, 0, .2),
+            0 3px 0 #fff,
+            0 4px 0 rgba(0, 0, 0, .2),
+            0 6px 0 #fff,
+            0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+            0 0 2px rgba(0, 0, 0, 0.2),
+            1px 1px   0 rgba(0,   0,   0,   .1),
+            3px 3px   0 rgba(255, 255, 255, 1),
+            4px 4px   0 rgba(0,   0,   0,   .1),
+            6px 6px   0 rgba(255, 255, 255, 1),
+            7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+            0 0 2px rgba(0, 0, 0, 0.2),
+            0 1px 1px rgba(0, 0, 0, .2),
+            0 3px 0 #fff,
+            0 4px 0 rgba(0, 0, 0, .2),
+            0 6px 0 #fff,
+            0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#login:before
+{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border: 1px dashed #ccc;
+    bottom: 5px;
+    /*top: 5px;
+     left: 5px;
+    right: 5px;*/
+    -moz-box-shadow: 0 0 0 1px #fff;
+    -webkit-box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px #fff;
+}
+.addQualification{
+    margin-right:5px;
+}

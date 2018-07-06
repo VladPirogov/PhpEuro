@@ -1,4 +1,4 @@
-﻿SELECT
+﻿SELECT 
   Qualification.Date,
   Qualification.abbreviation,
   Qualification.Qualification_UA

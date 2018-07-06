@@ -26,10 +26,10 @@ header{
     background-image: -ms-linear-gradient(top, #fff, #eee);
     background-image: -o-linear-gradient(top, #fff, #eee);
     background-image: linear-gradient(top, #fff, #eee);
-
+    height: auto;
     width: 70%;
-    margin: 15% 0 0 15%;
-    padding: 10px;
+    margin: 0 15% 0 15%;/*
+    padding: 10px;*/
     /*position: absolute;*/
     top: 70px;
     z-index: 0;
@@ -74,5 +74,5 @@ header{
     box-shadow: 0 0 0 1px #fff;
 }
 .addQualification{
-    margin-right:5px;
+    margin: 0 0 0 auto;
 }

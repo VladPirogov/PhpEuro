@@ -14,18 +14,27 @@
 
 </head>
 <body>
-	<form id="login" action="../user/regist.php" method="post">
+	<form id="login" action="../user/regist.php" class="formWithValidation" method="post">
     <h1>Форма регистрації</h1>
     <fieldset id="inputs">
-        <input id="userEmail" name="userEmail" type="text" placeholder="Ваша пошта(E-mail)" autofocus required>
-        <input id="username" name="username" type="text" placeholder="Ваше ім'я(login)" autofocus required>
-        <input id="password" name="password" type="password" placeholder="Пароль" required>
-        <input id="passwordCopy" type="password" placeholder="Повторіть пароль" required>
+        <div>
+            <input id="userEmail" name="userEmail" type="email"  placeholder="Ваша пошта(E-mail)" autofocus required>
+            <span class="form__error">Це поле повинно містити E-Mail в форматі example@site.com</span>
+        </div>
+            <input id="username" name="username" type="text" placeholder="Ваше ім'я(login)" minlength="4" maxlength="20" autofocus required>
+            <span class="form__error">Логін повинен бути не менше 4 та не більше 20 символів</span>
+        <div>
+            <input id="password" name="password" class="password" type="password" placeholder="Пароль" minlength="4" maxlength="20" required>
+            <span class="form__error">Пароль повинен бути не менше 4 та не більше 20 символів</span>
+        </div>
+        <div>
+            <input id="passwordCopy" type="password" class="passwordCopy" placeholder="Повторіть пароль" minlength="4" maxlength="20" required>
+            <span class="form__error">Пароль повинен бути не менше 4 та не більше 20 символів</span>
+        </div>
     </fieldset>
     <fieldset id="actions">
-        <input type="submit" id="submit" value="ЗАРЕЄСТРУВАТИСЬ">
+        <input type="submit" id="submit" class="validateBtn" value="ЗАРЕЄСТРУВАТИСЬ">
     </fieldset>
 </form>
-
 </body>
 </html>

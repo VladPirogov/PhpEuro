@@ -17,10 +17,6 @@ if(mysqli_num_rows($result)==0)
     $query = "INSERT INTO `User`(`Name`, `pass`, `e-mail`) VALUES (\"" . $login . "\",\"" . $password . "\",\"" . $email . "\")";
     mysqli_query($linc,$query) or die(mysqli_error($linc));
     $id=mysqli_insert_id($linc);
-    echo '
-         <script type="text/javascript"> 
-          alert('.$id .');
-           </script>';
     $_SESSION['user_id'] = $id;
     echo '<script>location.replace("kabinet.php");</script>'; exit;
 

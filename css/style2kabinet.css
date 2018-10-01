@@ -17,6 +17,7 @@ header{
     background: #D8E3AB;
     margin-left:15%;
 }
+
 #login
 {
     background-color: #fff;
@@ -73,6 +74,28 @@ header{
     -webkit-box-shadow: 0 0 0 1px #fff;
     box-shadow: 0 0 0 1px #fff;
 }
-.addQualification{
-    margin: 0 0 0 auto;
+
+.flex-container-1{
+    padding:10px;
+    display: flex;
+    border-radius: 3px;
+    justify-content: flex-end;
+
+}
+.flex-element{
+    margin: 2.5px 0 0 2.5px;
+    word-break: break-all;
+}
+
+
+.flex-container{
+    padding:10px;
+    display: flex;
+    border-radius: 3px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+#table{
+    word-break: break-all;
+    padding: 10px;
 }

@@ -9,7 +9,7 @@ session_start();
 /*
 echo $_SESSION['user_id'];*/
 include '../connection.php';
-session_start();
+
 
 $query = "SELECT Name FROM User WHERE User_ID=".$_SESSION['user_id']." LIMIT 1";
 $result = mysqli_query($linc,$query) or die(mysqli_error($linc));
@@ -34,34 +34,34 @@ $_SESSION['username']=$row[0];
 <body>
 
     <header>
-        <h1 id="username"><i>Строрінка: <span><?php echo $_SESSION['username'];?></span></i></h1>
+        <h1 id="username"><i>Автор: <span><?php echo $_SESSION['username'];?></span></i></h1>
     </header>
     <form id="login" action="kabinet.php" method="POST">
-        <div >
-            <input type="text" name="search"  placeholder="Пошук">
-            <button type="submit"  class="btn btn-default">Пошук</button>
+        <!--<div class="flex-container">
+            <input class="flex-element" type="text" placeholder="Пошук" autofocus>
+            <input class="flex-element" type="submit" value="Почати пошук">
+        </div>-->
+        <div class="flex-container-1">
+            <input class="flex-element" href="addQualification.php" type="submit" name="addQualification" value="Створити спеціальність">
         </div>
-        <a href="addQualification.php" class="btn btn-default">Створити спеціальність</a>
-        <p>Кольоровий зір людини залежить від здатності ока сприймати кольори та їх відтінки.
-            Око людини здатне сприймати до 13000 кольорів та їх відтінків. Хоча механізм перетворення фізичних
-            характеристик світла у психофізичні до кінця не вивчений, існує безліч теорій,
-            які намагалися пояснити механізми кольорового зору людини. Основна теорія пояснення кольорового зору людини
-             це трьохкомпонентна теорія кольорового зору (теорія Юнга-Гемгольца).
-            Оскільки наше око містить три види колбочок, які сприймають три кольори. Цих трьох кольорів достатньо для
-            змішування та формування усіх інших кольорів спектру. </p>
+
+
+        <p> </p>
+        <div id="table">
         <table class="table ">
         <?php
             echo  "<tr>
                 <th>Дата створення</th>
                 <th>Абрівіатура</th>
                 <th>Повна назва</th>
-                
+                <th>Редагувати</th>
             </tr>";
             $query="SELECT   Qualification.Date,   
                     Qualification.abbreviation,
-                    Qualification.Qualification_UA 
+                    Qualification.Qualification_UA, 
+                    Qualification.Qualification_ID
                     FROM Qualification WHERE Qualification.User_ID=".$_SESSION['user_id'];/*Доделать запрос возможно
-количество не нулевых дисциплин*/
+                    количество не нулевых дисциплин*/
         $result = mysqli_query($linc,$query) or die(mysqli_error($linc));
         while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
         {
@@ -69,17 +69,37 @@ $_SESSION['username']=$row[0];
              <tr>
                 <td>%s</td>
                 <td>%s</td>
-                <td>%s</td>  
-            </tr>
+                <td>%s</td>
+                <td>
+                    <form action='kabinet.php' method='post'>
+                        <input type='hidden'  name='r' value='$row[3]' />
+                        <input type='submit'  name='submit' value=\"Перегляд\"/>
+                    </form>  
+             </tr>
         
              ", $row[0], $row[1],$row[2]);
         }
 
         ?>
         </table>
+        </div>
 
     </form>
 </body>
 </html>
 <?php
+if(isset($_POST['addQualification']))
+{
+    $query = "INSERT INTO Qualification (User_ID,Date) VALUES (\"" . $_SESSION['user_id'] . "\",\"".date("d.m.Y")."\")";
+    mysqli_query($linc,$query) or die(mysqli_error($linc));
+    $_SESSION["id_qualification"]=mysqli_insert_id($linc);
+    echo '<script>location.replace("addQualification.php");</script>'; exit;
+
+
+}
+if(isset($_POST['r']))
+{
+    $_SESSION["id_qualification"]=$_POST['r'];
+    echo '<script>location.replace("addQualification.php");</script>'; exit;
+}
 ?>

@@ -116,12 +116,25 @@ include '../connection.php';
                         <th scope="col">Числовое поле</th>
                         <th scope="col">числовое поле</th>
                         <th scope="col">checkbox</th>
-                        <th scope="col">Прізвище викладача</th>
                         <th scope="col">Семестр</th>
+                        <th scope="col">Прізвище викладача</th>
                         <th scope="col">Додання/видалення строки</th>
                     </tr>
                     </thead>
                     <?php
+                    $sql = "SELECT Teacher.* FROM Teacher";
+                    $result_select = mysqli_query($linc, $sql);
+                    $select="<html>
+                        <label>
+                                    <select name=\"Discipline.Teacher_ID\">
+                                        <option value='0'>Выбор</option>
+                                        <?php
+                                        while($object = mysqli_fetch_object($result_select)){
+                                            echo \"<option value = '$object->Teacher_ID' > $object->Lastname </option>\";}
+                                        ?>
+                                    </select>
+                        </label>
+                    </html>";
                     $query="SELECT
                           Discipline.Discipline_ID,
                           Discipline.Course_title_UA,
@@ -129,7 +142,7 @@ include '../connection.php';
                           Discipline.Loans,
                           Discipline.Hours,
                           Discipline.Teaching,
-                          Discipline.Differential
+                          Discipline.Differential,
                           Discipline.Semester,
                           Discipline.Teacher_ID
                         FROM Discipline
@@ -186,26 +199,14 @@ include '../connection.php';
                                     </label>
                                 </td>
                                 <td>
-                                <?php
-                                    $sql = "SELECT * FROM Teacher";
-                                     $result_select = mysqli_query($on_link, $sql);?>
-                                    <label>
-                                        <select name="Discipline.Teacher_ID">
-                                           <option value=\'0\'>Выбор</option>
-                                           <?php
-                                            while($object = mysqli_fetch_object($result_select)){
-                                                echo "<option value = \'$object->Teacher_ID\' > $object->Lastname </option>";}
-                                            ?> 
-                                        </select>
-                                    </label>
-                                 
+                                    "%s" 
                                 </td>
                                 <td>
                                     <button type="button" class="add">+</button>
                                     <button type="button" class="del">-</button>
                                 </td>
                             </tr>
-                    </form>',$row[0],$row[1],$row[2],$row[3],$row[4]);
+                    </form>',$row[0],$row[1],$row[2],$row[3],$row[4],$select);
                     }
                     ?>
                     <form >
@@ -246,19 +247,19 @@ include '../connection.php';
                             <td>
                                 <label>
                                     <select name="Discipline.Semester">
-                                        <option value="1" <?=selected("1",$row[6])?>1</option>
-                                        <option value="2" <?=selected("2",$row[6])?>2</option>
-                                        <option value="3" <?=selected("3",$row[6])?>3</option>
-                                        <option value="4" <?=selected("4",$row[6])?>4</option>
-                                        <option value="5" <?=selected("5",$row[6])?>5</option>
-                                        <option value="6" <?=selected("6",$row[6])?>6</option>
+                                        <option value="1" >1</option>
+                                        <option value="2" >2</option>
+                                        <option value="3" >3</option>
+                                        <option value="4" >4</option>
+                                        <option value="5" >5</option>
+                                        <option value="6" >6</option>
                                     </select>
                                 </label>
                             </td>
                             <td>
                                 <?php
-                                $sql = "SELECT * FROM Teacher";
-                                $result_select = mysqli_query($on_link, $sql);?>
+                                $sql = "SELECT Teacher.* FROM Teacher";
+                                $result_select = mysqli_query($linc, $sql);?>
                                 <label>
                                     <select name="Discipline.Teacher_ID">
                                         <option value='0'>Выбор</option>

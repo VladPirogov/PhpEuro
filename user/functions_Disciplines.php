@@ -7,9 +7,22 @@
  */
 session_start();
 include '../connection.php';
-
+function select($num)
+{
+    global $linc;
+    $sql = "SELECT Teacher.* FROM Teacher";
+    $result_select = mysqli_query($linc, $sql);
+    ob_start();
+    while($object = mysqli_fetch_object($result_select)){
+        echo "<option value = '$object->Teacher_ID' <?=selected($object->Teacher_ID,$num )?> $object->Lastname </option>";}
+    $res=ob_get_contents();
+    ob_clean();
+    return $res;
+}
+/*
 function ()
 {
+    global $linc;
     if(check())
     {
         if($_POST["Discipline_ID"]!="NaN")
@@ -41,5 +54,5 @@ function ()
     }
 
 }
-function check(){return true;}
+function check(){return true;}*/
 ?>

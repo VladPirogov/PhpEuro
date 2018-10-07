@@ -7,6 +7,7 @@
  */
 session_start();
 include '../connection.php';
+include 'functions_Disciplines.php';
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -21,6 +22,7 @@ include '../connection.php';
     <link href="../css/discipline.css" rel="stylesheet">
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+
 </head>
 <body>
     <header id="header">
@@ -51,10 +53,12 @@ include '../connection.php';
                             AND Qualification.Qualification_ID =".$_SESSION["id_qualification"];
                         $result = mysqli_query($linc,$query) or die(mysqli_error($linc));
                         $row=mysqli_fetch_array($result,MYSQLI_NUM);
+
                         function selected( $value, $remember ){
                             return
                                 $value == $remember ? 'selected' : null;
                         }
+
                         ?>
                     </span>
                 </p>
@@ -122,19 +126,7 @@ include '../connection.php';
                     </tr>
                     </thead>
                     <?php
-                    $sql = "SELECT Teacher.* FROM Teacher";
-                    $result_select = mysqli_query($linc, $sql);
-                    $select="<html>
-                        <label>
-                                    <select name=\"Discipline.Teacher_ID\">
-                                        <option value='0'>Выбор</option>
-                                        <?php
-                                        while($object = mysqli_fetch_object($result_select)){
-                                            echo \"<option value = '$object->Teacher_ID' > $object->Lastname </option>\";}
-                                        ?>
-                                    </select>
-                        </label>
-                    </html>";
+
                     $query="SELECT
                           Discipline.Discipline_ID,
                           Discipline.Course_title_UA,
@@ -150,7 +142,7 @@ include '../connection.php';
                     $result = mysqli_query($linc,$query) or die(mysqli_error($linc));
                     while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
                         printf('
-                    <form >
+                    <form name="table">
                         <tbody id="dynamic">
                             <tr>
                                 <td style="display: none">
@@ -199,17 +191,22 @@ include '../connection.php';
                                     </label>
                                 </td>
                                 <td>
-                                    "%s" 
+                                    <label>
+                                        <select name=\"Discipline.Teacher_ID\">
+                                            <!--<option value=\'0\'>Выбор</option>-->
+                                               %s 
+                                        </select>
+                                    </label> 
                                 </td>
                                 <td>
                                     <button type="button" class="add">+</button>
                                     <button type="button" class="del">-</button>
                                 </td>
                             </tr>
-                    </form>',$row[0],$row[1],$row[2],$row[3],$row[4],$select);
+                    </form>',$row[0],$row[1],$row[2],$row[3],$row[4],select($row[7]));
                     }
                     ?>
-                    <form >
+                    <form name="table">
                         <tr CLASS="dynamicExample" style="display: none">
                             <td style="display: none">
                                 <input type="text" name="Discipline_ID" value="NaN">
@@ -262,14 +259,13 @@ include '../connection.php';
                                 $result_select = mysqli_query($linc, $sql);?>
                                 <label>
                                     <select name="Discipline.Teacher_ID">
-                                        <option value='0'>Выбор</option>
+
                                         <?php
                                         while($object = mysqli_fetch_object($result_select)){
                                             echo "<option value = '$object->Teacher_ID' > $object->Lastname </option>";}
                                         ?>
                                     </select>
                                 </label>
-
                             </td>
                             <td>
                                 <button type="button" class="add">+</button>
@@ -288,3 +284,4 @@ include '../connection.php';
         new DynamicTable( document.getElementById("dynamic") );
     </script>
 </body>
+

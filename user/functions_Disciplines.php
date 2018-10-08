@@ -53,6 +53,6 @@ function ()
 
     }
 
-}
-function check(){return true;}*/
+}*/
+function check(){return true;}
 ?>

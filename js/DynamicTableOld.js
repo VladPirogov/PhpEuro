@@ -1,4 +1,37 @@
+function ParsTable() {
+    var table = document.getElementsByClassName('display-table');
 
+    //Объекты всех строк таблицы
+    var rows = table[0].children[0].children;
+
+    //Массив соответствующий строкам таблицы
+    var arrayOfTrValues = [];
+
+    //Перебор строк (DOM-элементы)
+    for (var rowI = 0; rowI < rows.length; rowI++) {
+        //Объект, соответсвующий содержимому одной строки
+        var row = {};
+
+        //Ячейки текущей строки (DOM-элемент)
+        var tr = rows[rowI].children;
+
+        //Перебор ячеек (DOM-элементы)
+        for (var trI = 0; trI < tr.length; trI++) {
+            //Название класса текущей строки (DOM-элемент)
+            var tdClass = tr[trI].className;
+
+            //Запись значения
+            row[tdClass] = tr[trI].innerHTML;
+        }
+
+        //Добавление элемента в результат
+        arrayOfTrValues.push(row);
+    }
+
+    //Вывод результата
+    console.log(arrayOfTrValues);
+
+}
 
 var DynamicTable = (function(GLOB) {
     var RID = 0;
@@ -6,6 +39,7 @@ var DynamicTable = (function(GLOB) {
         if (!(this instanceof arguments.callee)) {
             return new arguments.callee.apply(arguments);//конструктор
         }
+
         tBody.onclick = function(e) {
             var evt = e || GLOB.event,//события
                 trg = evt.target || evt.srcElement;//ОБРАШЕНИЕ к вложенему елементу на котором было вызвано событеэ

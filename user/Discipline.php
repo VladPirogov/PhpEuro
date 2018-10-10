@@ -142,7 +142,7 @@ include 'functions_Disciplines.php';
                     $result = mysqli_query($linc,$query) or die(mysqli_error($linc));
                     while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
                         printf('
-                    <form name="table">
+                    <form name="table" method="post">
                         <tbody id="dynamic">
                             <tr>
                                 <td style="display: none">
@@ -206,7 +206,7 @@ include 'functions_Disciplines.php';
                     </form>',$row[0],$row[1],$row[2],$row[3],$row[4],select($row[7]));
                     }
                     ?>
-                    <form name="table">
+                    <form name="table" method="post">
                         <tr CLASS="dynamicExample" style="display: none">
                             <td style="display: none">
                                 <input type="text" name="Discipline_ID" value="NaN">
@@ -273,10 +273,12 @@ include 'functions_Disciplines.php';
                             </td>
                         </tr>
                         </tbody>
-                    </form>
+                    </form >
                 </table>
-            </div method="post" >
-            <input name="sub" type="submit" action="" value="SEND" style="margin: 10px">
+            </div  >
+            <form name="sub" method="POST" >
+                <input type="submit" action="function_Disciplines.php" value="SEND" style="margin: 10px">
+            </form>
         </div>
         </div>
     <script src="../js/DynamicTableOld.js"></script>

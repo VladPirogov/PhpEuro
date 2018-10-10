@@ -19,10 +19,14 @@ function select($num)
     ob_clean();
     return $res;
 }
-/*
-function ()
+
+function ToBd()
 {
-    global $linc;
+    printf( "LFFFFFFFFFFFFFFFFFFFFFFFFF");
+    echo '<script type="text/javascript" src="../js/DynamicTableOld.js">',
+    'ParsTable();',
+    '</script>';
+    /*global $linc;
     if(check())
     {
         if($_POST["Discipline_ID"]!="NaN")
@@ -52,7 +56,10 @@ function ()
         }
 
     }
-
-}*/
+*/
+}
+if($_POST["sub"]=="SEND"){
+    ToBd();
+}
 function check(){return true;}
 ?>

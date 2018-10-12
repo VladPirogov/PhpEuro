@@ -22,7 +22,6 @@ function select($num)
 
 function ToBd()
 {
-    printf( "LFFFFFFFFFFFFFFFFFFFFFFFFF");
     echo '<script type="text/javascript" src="../js/DynamicTableOld.js">',
     'ParsTable();',
     '</script>';
@@ -58,8 +57,6 @@ function ToBd()
     }
 */
 }
-if($_POST["sub"]=="SEND"){
-    ToBd();
-}
+
 function check(){return true;}
 ?>

@@ -8,6 +8,8 @@
 session_start();
 include '../connection.php';
 include 'functions_Disciplines.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -111,7 +113,7 @@ include 'functions_Disciplines.php';
                 </div>
                 </form>
                 <div class="el">
-                <table class="display-table" border="1">
+                <table class="display-table" id="dynamic-table" border="1">
                     <thead>
                     <tr>
                         <th scope="col">Текстовое поле</th>
@@ -276,8 +278,9 @@ include 'functions_Disciplines.php';
                     </form >
                 </table>
             </div  >
-            <form name="sub" method="POST" >
-                <input type="submit" action="function_Disciplines.php" value="SEND" style="margin: 10px">
+            <form method="POST" action="Discipline.php">
+                <input type="submit"  value="SEND" style="margin: 10px">
+                <input  name="sub" type="hidden"  value="SEND" >
             </form>
         </div>
         </div>
@@ -286,4 +289,13 @@ include 'functions_Disciplines.php';
         new DynamicTable( document.getElementById("dynamic") );
     </script>
 </body>
+<?php
+if($_POST['sub']=="SEND"){
+    echo '<script type="text/javascript" src="../js/DynamicTableOld.js"></script>';
+    echo '<script type="text/javascript" >ParsTable();</script>';
+    /*    echo '<script type="text/javascript" >console.log(ParsTable("dynamic-table"));</script>';*/
+
+}
+
+?>
 

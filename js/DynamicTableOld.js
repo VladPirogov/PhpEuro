@@ -1,8 +1,10 @@
+
 function ParsTable() {
-    var table = document.getElementsByClassName('display-table');
+        var table = document.getElementById('dynamic-table');
 
     //Объекты всех строк таблицы
-    var rows = table[0].children[0].children;
+    //var rows =document.getElementById('dynamic-table').rows;
+    var rows = table.children[1];
 
     //Массив соответствующий строкам таблицы
     var arrayOfTrValues = [];
@@ -18,10 +20,10 @@ function ParsTable() {
         //Перебор ячеек (DOM-элементы)
         for (var trI = 0; trI < tr.length; trI++) {
             //Название класса текущей строки (DOM-элемент)
-            var tdClass = tr[trI].className;
+            //var tdClass = tr[trI].className;
 
             //Запись значения
-            row[tdClass] = tr[trI].innerHTML;
+            row[trI] = tr[trI].innerHTML;
         }
 
         //Добавление элемента в результат
@@ -29,9 +31,34 @@ function ParsTable() {
     }
 
     //Вывод результата
-    console.log(arrayOfTrValues);
+    console.log(arrayOfTrValues[0]);
 
 }
+/*function ParsTable(tableID)  {
+    var qty = [];
+    var messureUnit = [];
+    var price = [];
+    var total = [];
+    var table = x(tableID);
+    var rowCount = table.rows.length;
+    for (var i = 1; i < rowCount; i++) {
+        messureUnit[i] = table.rows[i].cells[2].innerHTML;
+        price[i] = table.rows[i].cells[3].innerHTML;
+        price[i] = table.rows[i].cells[4].innerHTML;
+        qty[i] = table.rows[i].cells[1].innerHTML;
+    }
+    var array = JSON.stringify(qty);
+    $.ajax({
+        type: "POST",
+        data: { array1: array },
+        url: "DataReceiver.php",
+        dataType: 'json',
+        success: function (response) {
+            $('#resp').val(response);
+        }
+    });
+}
+*/
 
 var DynamicTable = (function(GLOB) {
     var RID = 0;
@@ -84,4 +111,4 @@ var DynamicTable = (function(GLOB) {
 
 
 
-new DynamicTable(document.getElementById("dynamic"));
+//  new DynamicTable(document.getElementById("dynamic"));

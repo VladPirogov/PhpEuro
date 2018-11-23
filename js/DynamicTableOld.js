@@ -1,10 +1,51 @@
 
 function ParsTable() {
-        var table = document.getElementById('dynamic-table');
+   /* var row = 1;
+    var data = $('table tr:nth-child(' + row + ')').find('td:nth-child(2)').html();
+    console.log(data);*/
+
+    //Объект таблицы в DOM
+    var table = $('#dynamic-table');
 
     //Объекты всех строк таблицы
-    //var rows =document.getElementById('dynamic-table').rows;
-    var rows = table.children[1];
+    var rows = table.children().children();
+
+    //Массив соответствующий строкам таблицы
+    var arrayOfTrValues = [];
+
+
+    //Перебор строк (DOM-элементы)
+    for (var rowI = 0; rowI < rows.length; rowI++) {
+        //Объект, соответсвующий содержимому одной строки
+        var row = {};
+
+        //Ячейки текущей строки (DOM-элемент)
+        var tr = $(rows[rowI]).children();
+        //console.log($(rows[rowI]).children());
+
+
+        //Перебор ячеек (DOM-элементы)
+        for (var trI = 1; trI < tr.length; trI++) {
+            //Название класса текущей строки (DOM-элемент)
+            var tdClass = $(tr[trI]).attr('class');
+
+            //Запись значения
+            row[tdClass] = $(tr[trI]).html();
+            console.log($(tr[trI]).html());
+        }
+
+        //Добавление элемента в результат
+        //arrayOfTrValues.push(row);
+    }
+
+    //Вывод результата
+    //console.log(arrayOfTrValues);
+    /*var table = document.getElementById('dynamic-table');
+
+    //Объекты всех строк таблицы
+    var rows =document.getElementById('dynamic-table').rows;
+    //var rows = table.children[1];
+    console.log(rows);
 
     //Массив соответствующий строкам таблицы
     var arrayOfTrValues = [];
@@ -31,7 +72,7 @@ function ParsTable() {
     }
 
     //Вывод результата
-    console.log(arrayOfTrValues[0]);
+    console.log(arrayOfTrValues[0][1]);*/
 
 }
 /*function ParsTable(tableID)  {

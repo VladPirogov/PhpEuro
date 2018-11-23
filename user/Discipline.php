@@ -24,6 +24,7 @@ include 'functions_Disciplines.php';
     <link href="../css/discipline.css" rel="stylesheet">
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <script src="../js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -116,14 +117,14 @@ include 'functions_Disciplines.php';
                 <table class="display-table" id="dynamic-table" border="1">
                     <thead>
                     <tr>
-                        <th scope="col">Текстовое поле</th>
-                        <th scope="col">Текстовое поле</th>
-                        <th scope="col">Числовое поле</th>
-                        <th scope="col">Числовое поле</th>
-                        <th scope="col">числовое поле</th>
-                        <th scope="col">checkbox</th>
-                        <th scope="col">Семестр</th>
-                        <th scope="col">Прізвище викладача</th>
+                        <th scope="col">Course_title_UA</th>
+                        <th scope="col">Course_title_EN</th>
+                        <th scope="col">Loans</th>
+                        <th scope="col">Hours</th>
+                        <th scope="col">Teaching</th>
+                        <th scope="col">Differential</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">Teacher_ID</th>
                         <th scope="col">Додання/видалення строки</th>
                     </tr>
                     </thead>

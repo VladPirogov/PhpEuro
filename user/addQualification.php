@@ -39,7 +39,7 @@ if(isset($_POST['save'])){
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>Генератор єврододатків</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/input.js"></script>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
